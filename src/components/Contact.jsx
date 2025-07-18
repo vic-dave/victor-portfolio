@@ -28,14 +28,14 @@ export default function Contact() {
               <FaEnvelope className="text-emerald-600 mt-1" />
               <div>
                 <h4 className="font-semibold">Email</h4>
-                <p className="text-gray-600">yourname@example.com</p>
+                <p className="text-gray-600">vicdave888@gmail.com</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <FaPhone className="text-emerald-600 mt-1" />
               <div>
                 <h4 className="font-semibold">Phone</h4>
-                <p className="text-gray-600">+234 812 345 6789</p>
+                <p className="text-gray-600">+234 812 176 7040</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
