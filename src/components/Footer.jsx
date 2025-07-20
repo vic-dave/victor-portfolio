@@ -33,12 +33,12 @@ function Footer() {
       {/* Scroll to top button */}
       {showTop && (
         <button
-          onClick={scrollToTop}
-          aria-label="Scroll to top"
-          className="fixed bottom-5 right-5 p-3 bg-emerald-600 text-white rounded-full shadow-lg hover:bg-emerald-500 transition-transform hover:scale-110 z-50"
-        >
-          <FaArrowUp />
-        </button>
+        onClick={scrollToTop}
+        aria-label="Scroll to top"
+        className="fixed bottom-24 right-5 p-3 bg-emerald-600 text-white rounded-full shadow-lg hover:bg-emerald-500 transition-transform hover:scale-110 z-50"
+      >
+        <FaArrowUp />
+      </button>      
       )}
 
       <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
