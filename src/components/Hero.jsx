@@ -1,6 +1,6 @@
 // src/components/Hero.jsx
-import heroBg from '/tech.jpg';
 import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 
 function Hero() {
   return (
@@ -11,7 +11,7 @@ function Hero() {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/tech.jpg')" }} // 👈 Replace with your background
+        style={{ backgroundImage: "url('/tech.jpg')" }}
       ></div>
 
       {/* Dark Overlay */}
@@ -20,7 +20,7 @@ function Hero() {
       {/* Content Layer */}
       <div className="relative z-10 flex flex-col items-center">
         <motion.img
-          src="/victor.jpeg" // 👈 Replace with your profile image
+          src="/victor.jpeg"
           alt="Victor"
           className="w-40 h-40 md:w-52 md:h-52 object-cover rounded-full shadow-xl border-4 border-white mb-6"
           initial={{ scale: 0, opacity: 0 }}
@@ -37,14 +37,26 @@ function Hero() {
           Hi, I’m Victor
         </motion.h1>
 
-        <motion.p
+        <motion.div
           className="text-white text-lg md:text-xl max-w-xl mb-6"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          I build software, simplify tech through teaching, and live to please Jesus.
-        </motion.p>
+          <TypeAnimation
+            sequence={[
+              "I build software 💻",
+              2000,
+              "I simplify tech through teaching 🎓",
+              2000,
+              "I live to please Jesus ✝️",
+              2000,
+            ]}
+            wrapper="span"
+            speed={50}
+            repeat={Infinity}
+          />
+        </motion.div>
 
         <motion.a
           href="#projects"
