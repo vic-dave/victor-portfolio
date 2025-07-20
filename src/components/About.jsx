@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaCheckCircle } from "react-icons/fa";
-import profilePic from "/a.jpeg"; // Replace with your image path
+import profilePic from "/about.png"; // Replace with your image path
 
 export default function About() {
   return (
