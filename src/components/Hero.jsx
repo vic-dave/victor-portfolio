@@ -1,8 +1,32 @@
 // src/components/Hero.jsx
-import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
+import { useEffect } from 'react';
+import Typed from 'typed.js';
+import { motion } from 'framer-motion';
 
 function Hero() {
+  useEffect(() => {
+    const typed = new Typed('.typed-text', {
+      strings: [
+        'I build software 💻',
+        'I simplify tech through teaching 🎓',
+        'I live to please Jesus ✝️',
+      ],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 2000,
+      startDelay: 500,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|',
+      smartBackspace: true,
+    });
+
+    // Scroll smoothly to hero section on load
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    return () => typed.destroy();
+  }, []);
+
   return (
     <section
       id="hero"
@@ -28,35 +52,24 @@ function Hero() {
           transition={{ duration: 1 }}
         />
 
+        {/* Typing Text with Fade In */}
         <motion.h1
           className="text-white text-3xl md:text-5xl font-bold mb-2"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3 }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
         >
           Hi, I’m Victor
         </motion.h1>
 
-        <motion.div
+        <motion.p
           className="text-white text-lg md:text-xl max-w-xl mb-6"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
         >
-          <TypeAnimation
-            sequence={[
-              "I build software 💻",
-              2000,
-              "I simplify tech through teaching 🎓",
-              2000,
-              "I live to please Jesus ✝️",
-              2000,
-            ]}
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
-          />
-        </motion.div>
+          <span className="typed-text"></span>
+        </motion.p>
 
         <motion.a
           href="#projects"
