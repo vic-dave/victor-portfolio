@@ -20,7 +20,9 @@ function Navbar() {
         <div className="space-x-6 text-gray-700 font-medium hidden md:flex">
           <a href="#hero" className="hover:text-primary transition">Home</a>
           <a href="#about" className="hover:text-primary transition">About</a>
+          <a href="#resume" className="hover:text-primary transition">Resume</a>
           <a href="#projects" className="hover:text-primary transition">Projects</a>
+          <a href="#testimonials" className="hover:text-primary transition">Testimonials</a>
           <a href="#contact" className="hover:text-primary transition">Contact</a>
         </div>
 
@@ -35,7 +37,9 @@ function Navbar() {
         <div className="md:hidden bg-white px-4 py-4 space-y-4 text-center shadow-md">
           <a href="#hero" className="block text-gray-700 hover:text-primary" onClick={closeMenu}>Home</a>
           <a href="#about" className="block text-gray-700 hover:text-primary" onClick={closeMenu}>About</a>
+          <a href="#resume" className="block text-gray-700 hover:text-primary" onClick={closeMenu}>Resume</a>
           <a href="#projects" className="block text-gray-700 hover:text-primary" onClick={closeMenu}>Projects</a>
+          <a href="#Testimonials" className="block text-gray-700 hover:text-primary" onClick={closeMenu}>Testimonials</a>
           <a href="#contact" className="block text-gray-700 hover:text-primary" onClick={closeMenu}>Contact</a>
         </div>
       )}
