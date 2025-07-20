@@ -48,7 +48,7 @@ export default function About() {
               </li>
               <li className="flex items-start gap-2">
                 <FaCheckCircle className="text-emerald-500 mt-1" />
-                <span>Built real-world platforms – TailorPro, SUG Voting App, Training System</span>
+                <span>Built real-world platforms – TailorPro, SUG Voting App, Food Ordering App, Siwes App, Manual Purchase App</span>
               </li>
               <li className="flex items-start gap-2">
                 <FaCheckCircle className="text-emerald-500 mt-1" />
