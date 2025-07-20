@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FaQuoteLeft } from "react-icons/fa";
 
 const testimonials = [
   {
@@ -45,16 +46,15 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="bg-gray-100 p-6 rounded-lg shadow-md"
+              className="bg-gray-100 p-6 rounded-2xl shadow-md border-l-4 border-emerald-500 relative"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <p className="text-gray-700 italic mb-4">"{testimonial.quote}"</p>
-              <h4 className="font-semibold text-emerald-700">
-                {testimonial.name}
-              </h4>
+              <FaQuoteLeft className="text-emerald-500 text-xl absolute -top-3 left-4 bg-white p-1 rounded-full" />
+              <p className="text-gray-700 italic mb-4 mt-4">"{testimonial.quote}"</p>
+              <h4 className="font-semibold text-emerald-700">{testimonial.name}</h4>
               <span className="text-sm text-gray-500">{testimonial.role}</span>
             </motion.div>
           ))}
