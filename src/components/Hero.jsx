@@ -1,4 +1,5 @@
 // src/components/Hero.jsx
+import heroBg from '/tech.jpg';
 import { motion } from "framer-motion";
 
 function Hero() {
