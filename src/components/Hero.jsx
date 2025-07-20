@@ -42,7 +42,7 @@ function Hero() {
       <div className="absolute inset-0 bg-black opacity-60"></div>
 
       {/* Content Layer */}
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="relative z-0 flex flex-col items-center">
         <motion.img
           src="/victor.jpeg"
           alt="Victor"
