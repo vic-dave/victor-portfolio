@@ -54,7 +54,7 @@ function Footer() {
             aria-label="GitHub"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-emerald-400 hover:bg-gray-800 p-2 rounded-full transition-transform transform hover:scale-110"
+            className="text-white hover:text-emerald-400 hover:bg-gray-800 p-2 rounded-full transition-transform transform hover:scale-110"
           >
             <FaGithub />
           </a>
@@ -63,7 +63,7 @@ function Footer() {
             aria-label="LinkedIn"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-emerald-400 hover:bg-gray-800 p-2 rounded-full transition-transform transform hover:scale-110"
+            className="text-blue-600 hover:text-emerald-400 hover:bg-gray-800 p-2 rounded-full transition-transform transform hover:scale-110"
           >
             <FaLinkedin />
           </a>
@@ -72,7 +72,7 @@ function Footer() {
             aria-label="Twitter"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-emerald-400 hover:bg-gray-800 p-2 rounded-full transition-transform transform hover:scale-110"
+            className="text-blue-400 hover:text-emerald-400 hover:bg-gray-800 p-2 rounded-full transition-transform transform hover:scale-110"
           >
             <FaTwitter />
           </a>
@@ -81,7 +81,7 @@ function Footer() {
             aria-label="Instagram"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-pink-400 hover:bg-gray-800 p-2 rounded-full transition-transform transform hover:scale-110"
+            className="text-pink-500 hover:text-pink-400 hover:bg-gray-800 p-2 rounded-full transition-transform transform hover:scale-110"
           >
             <FaInstagram />
           </a>
@@ -90,7 +90,7 @@ function Footer() {
             aria-label="YouTube"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-red-500 hover:bg-gray-800 p-2 rounded-full transition-transform transform hover:scale-110"
+            className="text-red-600 hover:text-red-800 hover:bg-gray-800 p-2 rounded-full transition-transform transform hover:scale-110"
           >
             <FaYoutube />
           </a>
@@ -99,7 +99,7 @@ function Footer() {
             aria-label="Telegram"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-blue-300 hover:bg-gray-800 p-2 rounded-full transition-transform transform hover:scale-110"
+            className="text-blue-500 hover:text-blue-300 hover:bg-gray-800 p-2 rounded-full transition-transform transform hover:scale-110"
           >
             <FaTelegram />
           </a>
