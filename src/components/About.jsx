@@ -50,16 +50,9 @@ export default function About() {
             viewport={{ once: true }}
           >
             <p className="text-gray-700 text-lg leading-relaxed">
-              I'm{" "}
-              <span className="font-semibold text-emerald-700">
-                Victor David
-              </span>
-              — a developer, mentor, and faith-driven teacher. My tech journey
-              began back in school, where I went from tutoring classmates to
-              building impactful platforms like <strong>TailorPro</strong> and
-              an <strong>Entrepreneurial Training Hub</strong>. Today, I focus
-              on turning complex code into clear solutions — and helping others
-              grow through it.
+              I’m <span className="font-semibold text-emerald-700">Victor David</span> — a software developer, educator, and visionary founder of <strong>TailorPro</strong>. With a passion for solving real-world problems through tech, I believe TailorPro is more than just an app — it’s a platform destined to make generational impact across Africa’s fashion and tailoring industry.
+              <br /><br />
+              My journey started in school, where I helped classmates understand complex topics through simple explanations. That drive grew into building solutions that now serve hundreds — from a <strong>SUG Voting App</strong> to a <strong>SIWES Tracker</strong>, and of course, TailorPro. I'm committed to creating tools that empower others — and leading with excellence, faith, and purpose in everything I do.
             </p>
 
             {/* Highlights */}
@@ -69,10 +62,12 @@ export default function About() {
               </h3>
               <ul className="space-y-3 text-gray-800 text-base">
                 {[
-                  "Graduated as Best Student – Computer Science, Kaduna Polytechnic",
-                  "Built real-world platforms: TailorPro, SUG Voting App, Siwes Tracker, and more",
-                  "Known as “Mr. Tutorials” for simplifying tech and mentoring on campus",
-                ].map((text, index) => (
+                    "Graduated as <strong>Best Student</strong> – Computer Science, Kaduna Polytechnic",
+                    "Founder of <strong>TailorPro</strong>: Digitizing fashion businesses across Africa",
+                    "Built impactful platforms like the <strong>SUG Voting App</strong> and <strong>SIWES Tracker</strong>",
+                    "Known as <strong>“Mr. Tutorials”</strong> for simplifying complex tech into practical learning",
+                    "Mentored dozens of aspiring developers and entrepreneurs through hands-on training"
+                  ].map((text, index) => (
                   <li key={index} className="flex items-start gap-2">
                     <FaCheckCircle className="text-emerald-500 mt-1" />
                     <span dangerouslySetInnerHTML={{ __html: text.replace(/(TailorPro|SUG Voting App|Siwes Tracker|Best Student|“Mr. Tutorials”)/g, '<strong>$1</strong>') }} />
