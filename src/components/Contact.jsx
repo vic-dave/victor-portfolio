@@ -1,11 +1,11 @@
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaUser, FaPaperPlane } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "emailjs-com";
 import { useRef, useState } from "react";
 
 export default function Contact() {
   const form = useRef();
-  const [isSent, setIsSent] = useState(false);
+  const [message, setMessage] = useState(null); // {type: 'success'|'error', text: ''}
   const [loading, setLoading] = useState(false);
 
   const sendEmail = (e) => {
@@ -14,21 +14,24 @@ export default function Contact() {
 
     emailjs
       .sendForm(
-        "service_8np6rks", // Your Service ID
-        "template_hk6jo3l", // Your Template ID
+        "service_8np6rks",
+        "template_hk6jo3l",
         form.current,
-        "1EmZ6MOOLET22WaUF" // Your Public Key
+        "1EmZ6MOOLET22WaUF"
       )
       .then(
-        (result) => {
-          console.log(result.text);
-          setIsSent(true);
+        () => {
+          setMessage({ type: "success", text: "✅ Message sent successfully!" });
           setLoading(false);
           e.target.reset();
+
+          // Auto-dismiss after 5 seconds
+          setTimeout(() => setMessage(null), 5000);
         },
-        (error) => {
-          console.log(error.text);
+        () => {
+          setMessage({ type: "error", text: "❌ Failed to send. Please try again later." });
           setLoading(false);
+          setTimeout(() => setMessage(null), 5000);
         }
       );
   };
@@ -88,27 +91,37 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <input
-              type="text"
-              name="user_name"
-              required
-              placeholder="Your Name"
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"
-            />
-            <input
-              type="email"
-              name="user_email"
-              required
-              placeholder="Your Email"
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"
-            />
-            <textarea
-              rows="4"
-              name="message"
-              required
-              placeholder="Your Message"
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"
-            ></textarea>
+            <div className="relative">
+              <FaUser className="absolute left-3 top-3 text-gray-400" />
+              <input
+                type="text"
+                name="user_name"
+                required
+                placeholder="Your Name"
+                className="w-full pl-10 border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"
+              />
+            </div>
+            <div className="relative">
+              <FaEnvelope className="absolute left-3 top-3 text-gray-400" />
+              <input
+                type="email"
+                name="user_email"
+                required
+                placeholder="Your Email"
+                className="w-full pl-10 border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"
+              />
+            </div>
+            <div className="relative">
+              <FaPaperPlane className="absolute left-3 top-3 text-gray-400" />
+              <textarea
+                rows="4"
+                name="message"
+                required
+                placeholder="Your Message"
+                className="w-full pl-10 border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"
+              ></textarea>
+            </div>
+
             <button
               type="submit"
               disabled={loading}
@@ -116,11 +129,22 @@ export default function Contact() {
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
-            {isSent && (
-              <p className="text-green-600 text-center pt-2">
-                ✅ Message sent successfully!
-              </p>
-            )}
+
+            <AnimatePresence>
+              {message && (
+                <motion.p
+                  key="feedback"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className={`text-center pt-2 font-medium ${
+                    message.type === "success" ? "text-green-600" : "text-red-500"
+                  }`}
+                >
+                  {message.text}
+                </motion.p>
+              )}
+            </AnimatePresence>
           </motion.form>
         </motion.div>
       </div>
