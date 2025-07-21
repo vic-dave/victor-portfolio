@@ -2,10 +2,11 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaUser, FaPaperPlane } from "react
 import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "emailjs-com";
 import { useRef, useState } from "react";
+import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function Contact() {
   const form = useRef();
-  const [message, setMessage] = useState(null); // {type: 'success'|'error', text: ''}
+  const [message, setMessage] = useState(null); // { type: 'success'|'error', text: '' }
   const [loading, setLoading] = useState(false);
 
   const sendEmail = (e) => {
@@ -21,15 +22,13 @@ export default function Contact() {
       )
       .then(
         () => {
-          setMessage({ type: "success", text: "✅ Message sent successfully!" });
+          setMessage({ type: "success", text: "Message sent successfully!" });
           setLoading(false);
           e.target.reset();
-
-          // Auto-dismiss after 5 seconds
           setTimeout(() => setMessage(null), 5000);
         },
         () => {
-          setMessage({ type: "error", text: "❌ Failed to send. Please try again later." });
+          setMessage({ type: "error", text: "Failed to send message. Try again." });
           setLoading(false);
           setTimeout(() => setMessage(null), 5000);
         }
@@ -37,7 +36,29 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-100">
+    <section id="contact" className="py-20 bg-gray-100 relative overflow-hidden">
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {message && (
+          <motion.div
+            key="toast"
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            className={`fixed z-50 top-6 right-6 md:right-6 left-1/2 md:left-auto transform md:-translate-x-0 -translate-x-1/2 shadow-xl px-5 py-3 rounded-lg text-white flex items-center gap-3 transition-all
+              ${message.type === "success" ? "bg-emerald-600" : "bg-red-500"}
+            `}
+          >
+            {message.type === "success" ? (
+              <AiOutlineCheckCircle className="text-2xl animate-bounce" />
+            ) : (
+              <AiOutlineCloseCircle className="text-2xl animate-bounce" />
+            )}
+            <span className="font-medium">{message.text}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="container mx-auto px-4 max-w-4xl">
         <motion.h2
           className="text-3xl font-bold text-center mb-12 text-emerald-700"
@@ -129,22 +150,6 @@ export default function Contact() {
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
-
-            <AnimatePresence>
-              {message && (
-                <motion.p
-                  key="feedback"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className={`text-center pt-2 font-medium ${
-                    message.type === "success" ? "text-green-600" : "text-red-500"
-                  }`}
-                >
-                  {message.text}
-                </motion.p>
-              )}
-            </AnimatePresence>
           </motion.form>
         </motion.div>
       </div>
